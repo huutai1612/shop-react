@@ -1,0 +1,11 @@
+.page {
+	background-color: rgb(249, 249, 249);
+	height: 756px;
+}
+
+.image {
+	background-image: url(https://technext.github.io/shopmax/images/model_3.png);
+	background-position: center top;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
