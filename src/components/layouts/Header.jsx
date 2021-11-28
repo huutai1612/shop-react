@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { BiSearchAlt, IoCartOutline, GiHamburgerMenu } from 'react-icons/all';
 import Navigation from '../UI/Navigation';
 
 const Header = (props) => {
@@ -16,7 +17,19 @@ const Header = (props) => {
 					<Navigation />
 				</div>
 				<div className='flex justify-end'>
-					<h1>test</h1>
+					<BiSearchAlt className='text-xl cursor-pointer mr-4' />
+					<div className='relative'>
+						<IoCartOutline className='text-xl cursor-pointer mr-4' />
+						<span
+							className={`absolute -top-2 right-2 bg-red-400 px-1.5 text-xs text-white rounded-full`}>
+							0
+						</span>
+					</div>
+					<GiHamburgerMenu
+						className={`text-xl cursor-pointer text-gray500 
+							sm:block lg:hidden hover:shadow-lg 
+						hover:text-red-400 transition ease-in-out duration-300`}
+					/>
 				</div>
 			</nav>
 		</header>
