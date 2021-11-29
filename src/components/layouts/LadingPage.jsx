@@ -10,7 +10,7 @@ const LandingPage = (props) => {
 					#new summer collection 2019
 				</p>
 				<h1 className='text-7xl uppercase'>Arrivals Sales</h1>
-				<ShopBtn />
+				<ShopBtn> Shop Now </ShopBtn>
 			</div>
 		</div>
 	);
