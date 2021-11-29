@@ -6,7 +6,7 @@ const Header = (props) => {
 	return (
 		<header className='container mx-auto'>
 			<nav className='grid gap-4 lg:grid-cols-3 sm:grid-cols-2 h-20 items-center'>
-				<div className='flex justify-center'>
+				<div className='flex justify-start'>
 					<NavLink
 						className=' uppercase font-semibold border-2 px-4 py-1 text-xl text-gray-500 border-black'
 						to='/'>

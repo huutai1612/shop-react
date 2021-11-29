@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import ShopBtn from '../UI/ShopBtn';
 import styles from './LandingPage.module.css';
 
 const LandingPage = (props) => {
@@ -10,11 +10,7 @@ const LandingPage = (props) => {
 					#new summer collection 2019
 				</p>
 				<h1 className='text-7xl uppercase'>Arrivals Sales</h1>
-				<NavLink
-					className='text-2xl bg-gray-900 text-white mt-8 px-4 py-2 hover:bg-gray-700 transition-all ease-in-out duration-300'
-					to='shop'>
-					Shop Now
-				</NavLink>
+				<ShopBtn />
 			</div>
 		</div>
 	);
