@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
 import { Routes, Route } from 'react-router';
 import './App.css';
-import Header from './components/layouts/Header';
-import Footer from './components/layouts/Footer';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import Homepage from './pages/Homepage';
 
 function App() {
