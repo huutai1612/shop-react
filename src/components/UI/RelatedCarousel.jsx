@@ -16,16 +16,16 @@ const slides = [
 const RelatedCarousel = (props) => {
 	return (
 		<div>
-			<Slider infinite={true} autoplay={2000}>
+			<Slider>
 				{slides.map((item, index) => (
 					<div
 						key={index}
-						className='flex justify-end items-end'
+						className='flex justify-end items-end pb-8'
 						style={{
-							background: `url('${item.image}') no-repeat -300% 10%`,
+							background: `url('${item.image}') no-repeat left 10%`,
 						}}>
 						<div>
-							<ShopBtn>{item.title}</ShopBtn>
+							<ShopBtn className=''>{item.title}</ShopBtn>
 						</div>
 					</div>
 				))}
