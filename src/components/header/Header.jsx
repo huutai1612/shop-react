@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { BiSearchAlt, IoCartOutline, GiHamburgerMenu } from 'react-icons/all';
-import Navigation from '../UI/Navigation';
+import Navigation from './Navigation';
 
 const Header = (props) => {
 	return (
