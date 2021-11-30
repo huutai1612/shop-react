@@ -4,12 +4,25 @@ import { BiSearchAlt, IoCartOutline, GiHamburgerMenu } from 'react-icons/all';
 import Navigation from './Navigation';
 import { useState } from 'react';
 import OffCanvas from '../UI/OffCanvas';
+import CartList from '../cart/CartList';
+import { useSelector } from 'react-redux';
+
+export const menuTitle = `Menu`;
+export const cartTitle = `Your Cart`;
 
 const Header = (props) => {
 	const [isShowNavigation, setIsShowNavigation] = useState(false);
+	const [isShowCart, setIsShowCart] = useState(false);
+	const totalAmountInCart = useSelector((state) =>
+		state.cartItem.reduce((total, item) => {
+			return (total += item.amount);
+		}, 0),
+	);
 
 	const showNavigationHandler = () => setIsShowNavigation(true);
 	const closeNavigationHandler = () => setIsShowNavigation(false);
+	const showCartHandler = () => setIsShowCart(true);
+	const closeCartHandler = () => setIsShowCart(false);
 
 	return (
 		<header className='container mx-auto'>
@@ -27,10 +40,13 @@ const Header = (props) => {
 				<div className='flex justify-end'>
 					<BiSearchAlt className='text-xl cursor-pointer mr-4' />
 					<div className='relative'>
-						<IoCartOutline className='text-xl cursor-pointer mr-4' />
+						<IoCartOutline
+							onClick={showCartHandler}
+							className='text-xl cursor-pointer mr-4'
+						/>
 						<span
 							className={`absolute -top-2 right-2 bg-red-400 px-1.5 text-xs text-white rounded-full`}>
-							0
+							{totalAmountInCart}
 						</span>
 					</div>
 					<GiHamburgerMenu
@@ -41,11 +57,21 @@ const Header = (props) => {
 					/>
 					{ReactDOM.createPortal(
 						<OffCanvas
-							title='Menu'
+							title={menuTitle}
 							className='flex flex-col items-end mr-8 mt-5'
 							show={isShowNavigation}
 							close={closeNavigationHandler}>
 							<Navigation />
+						</OffCanvas>,
+						document.getElementById('offcanvas'),
+					)}
+					{ReactDOM.createPortal(
+						<OffCanvas
+							title={cartTitle}
+							className='mt-5'
+							show={isShowCart}
+							close={closeCartHandler}>
+							<CartList />
 						</OffCanvas>,
 						document.getElementById('offcanvas'),
 					)}

@@ -1,9 +1,17 @@
 .open {
-	transform: translateX(0);
-	transition: all ease-in-out 0.3s;
+	animation: openNav ease-in-out 0.3s;
 }
 
 .close {
 	transform: translateX(100%);
 	transition: all ease-in-out 0.3s;
+}
+
+@keyframes openNav {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
 }
