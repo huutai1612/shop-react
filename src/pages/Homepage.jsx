@@ -1,4 +1,4 @@
-import LandingPage from '../components/layouts/LadingPage';
+import LandingPage from '../components/header/LandingPage';
 import RelatedSlider from '../components/layouts/RelatedSlider';
 
 const Homepage = (props) => {

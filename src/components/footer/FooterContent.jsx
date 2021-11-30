@@ -13,7 +13,7 @@ const FooterContent = (props) => {
 	};
 
 	return (
-		<div className='col-span-4'>
+		<div className='col-span-4 '>
 			<div className='flex flex-col'>
 				<div className='mt-3 flex items-center'>
 					<BsFillInfoSquareFill className='text-2xl' />
@@ -45,7 +45,9 @@ const FooterContent = (props) => {
 								focus:outline-none focus:ring-4 focus:ring-gray-300 focus:border-transparent`}
 							type='email'
 							placeholder='Email'></input>
-						<MainBtn className='absolute top-1 right-1 '>Send</MainBtn>
+						<MainBtn className='absolute top-1 right-1 text-white'>
+							Send
+						</MainBtn>
 					</form>
 				</div>
 			</div>
