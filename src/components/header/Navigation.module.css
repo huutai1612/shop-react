@@ -15,3 +15,9 @@
 .disabled {
 	color: #25262a;
 }
+
+@media screen and (max-width: 1024px) {
+	.nav {
+		margin-top: 16px;
+	}
+}
