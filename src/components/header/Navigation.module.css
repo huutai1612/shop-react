@@ -1,18 +1,18 @@
-.nav {
-	text-transform: uppercase;
-	border: 0px solid rgb(238, 66, 102);
-	transition: all ease-out 0.3s;
-}
-
-.nav:hover {
+.active:hover,
+.disable:hover {
 	border-bottom: 2px solid rgb(238, 66, 102);
 }
 
 .active {
+	text-transform: uppercase;
+	border: 0px solid rgb(238, 66, 102);
+	transition: all ease-out 0.3s;
 	color: rgb(238, 66, 102);
 }
 
 .disabled {
+	text-transform: uppercase;
+	transition: all ease-out 0.3s;
 	color: #25262a;
 }
 

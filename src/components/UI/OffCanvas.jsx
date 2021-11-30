@@ -1,7 +1,6 @@
 import { CSSTransition } from 'react-transition-group';
 import { TiDeleteOutline } from 'react-icons/all';
 import styles from './OffCanvas.module.css';
-import { menuTitle } from '../header/Header';
 
 const timing = {
 	enter: 500,
@@ -9,6 +8,7 @@ const timing = {
 };
 
 const OffCanvas = (props) => {
+	const hiddenClasses = props.tittle === 'Menu' ? 'lg:hidden' : '';
 	return (
 		<CSSTransition
 			in={props.show}
@@ -21,8 +21,8 @@ const OffCanvas = (props) => {
 			}}>
 			<div
 				className={`fixed right-0 top-0 flex-col sm:flex
-					${props.tittle === menuTitle && `lg:hidden`}   
-          sm:w-80 h-screen z-10 shadow-xl bg-white`}>
+					sm:w-80 h-screen z-10 shadow-xl bg-white
+					${hiddenClasses}`}>
 				<div className='flex justify-around items-center mt-5'>
 					<TiDeleteOutline
 						onClick={props.close}
