@@ -1,14 +1,14 @@
 .item:hover .btn {
 	opacity: 1;
-	height: inherit;
 	transform: translateX(0);
 }
 
 .btn {
-	width: 100%;
-	height: 0px;
+	position: absolute;
+	right: 0;
+	bottom: 12px;
 	opacity: 0;
-	transform: translateX(-10%);
+	transform: translateX(10%);
 	transition: all ease-in-out 0.3s;
 }
 
