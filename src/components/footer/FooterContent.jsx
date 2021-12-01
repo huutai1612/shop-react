@@ -45,9 +45,7 @@ const FooterContent = (props) => {
 								focus:outline-none focus:ring-4 focus:ring-gray-300 focus:border-transparent`}
 							type='email'
 							placeholder='Email'></input>
-						<MainBtn className='absolute top-1 right-1 text-white'>
-							Send
-						</MainBtn>
+						<MainBtn className='absolute top-1 right-1'>Send</MainBtn>
 					</form>
 				</div>
 			</div>

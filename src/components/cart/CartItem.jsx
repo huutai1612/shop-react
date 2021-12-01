@@ -20,7 +20,10 @@ const CartItem = (props) => {
 					</h2>
 					<p>
 						<span className='text-xl text-red-400'>{itemInCart.amount}</span> x{' '}
-						$ {itemInCart.price.toLocaleString()}
+						${' '}
+						{itemInCart.price.toLocaleString(undefined, {
+							minimumFractionDigits: 2,
+						})}
 					</p>
 				</div>
 			</li>

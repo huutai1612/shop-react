@@ -4,14 +4,14 @@ const DUMMY_ITEM = [
 	{
 		id: 'i1',
 		title: 'I1',
-		price: 200000,
+		price: 200,
 		img: 'https://technext.github.io/shopmax/images/model_7.png',
 		amount: 1,
 	},
 	{
 		id: 'i2',
 		title: 'I2',
-		price: 200000,
+		price: 200,
 		img: 'https://technext.github.io/shopmax/images/model_5.png',
 		amount: 1,
 	},
@@ -19,7 +19,7 @@ const DUMMY_ITEM = [
 
 const initialState = {
 	cartItem: DUMMY_ITEM,
-	totalPrice: 400000,
+	totalPrice: 400,
 };
 
 const cartSlice = createSlice({

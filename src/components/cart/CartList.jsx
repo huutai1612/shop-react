@@ -12,7 +12,11 @@ const CartList = (props) => {
 				<CartItem />
 				<li className='flex justify-around mt-20'>
 					<h2 className='text-xl text-red-400'>Total :</h2>
-					<p className='text-red-400'> $ {totalPrice.toLocaleString()}</p>
+					<p className='text-red-400'>
+						{' '}
+						${' '}
+						{totalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+					</p>
 				</li>
 				<li className='flex justify-around mt-20'>
 					<MainBtn>View Cart</MainBtn>
