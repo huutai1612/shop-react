@@ -14,8 +14,7 @@ const CartList = (props) => {
 					<h2 className='text-xl text-red-400'>Total :</h2>
 					<p className='text-red-400'>
 						{' '}
-						${' '}
-						{totalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+						$ {totalPrice.toFixed(2).toLocaleString()}
 					</p>
 				</li>
 				<li className='flex justify-around mt-20'>

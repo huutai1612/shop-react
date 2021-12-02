@@ -1,10 +1,16 @@
-import { NavLink } from 'react-router-dom';
 import { BsCartPlusFill } from 'react-icons/all';
+import { useNavigate } from 'react-router-dom';
 import Card from '../UI/Card';
 import styles from './ItemInShop.module.css';
 import MainBtn from '../UI/MainBtn';
 
 const ItemInShop = (props) => {
+	const navigate = useNavigate();
+
+	const detailClickHandler = () => {
+		navigate(`/product/${props.id}`);
+	};
+
 	return (
 		<Card className={`flex flex-col relative ${styles.item}`}>
 			<div className='mx-auto border-b-2'>
@@ -24,7 +30,7 @@ const ItemInShop = (props) => {
 				</p>
 			</div>
 			<div className={`${styles.btn} flex justify-end items-center mr-2`}>
-				<MainBtn>Detail</MainBtn>
+				<MainBtn onClick={detailClickHandler}>Detail</MainBtn>
 				<BsCartPlusFill className='text-2xl text-red-400 hover:text-red-500 ml-5' />
 			</div>
 		</Card>
