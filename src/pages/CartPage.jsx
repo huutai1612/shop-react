@@ -1,12 +1,16 @@
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import CartTable from '../components/cart/CartTable';
 import BreadCrumb from '../components/UI/BreadCrumb';
 import MainBtn from '../components/UI/MainBtn';
 
 const CartPage = (props) => {
 	const totalAmount = useSelector((state) => state.totalPrice);
+	const navigate = useNavigate();
+
+	const navigateToCheckoutHandler = () => navigate('/checkout');
+
 	return (
 		<Fragment>
 			<BreadCrumb>
@@ -32,7 +36,9 @@ const CartPage = (props) => {
 							</p>
 						</div>
 						<div className='py-12'>
-							<MainBtn className='w-full uppercase '>
+							<MainBtn
+								onClick={navigateToCheckoutHandler}
+								className='w-full uppercase '>
 								Proceed to Checkout
 							</MainBtn>
 						</div>

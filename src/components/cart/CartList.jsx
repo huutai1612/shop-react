@@ -11,6 +11,8 @@ const CartList = (props) => {
 
 	const navigateToCartHandler = () => navigate('/cart');
 
+	const navigateToCheckoutHandler = () => navigate('/checkout');
+
 	return (
 		<Fragment>
 			<ul>
@@ -24,7 +26,7 @@ const CartList = (props) => {
 				</li>
 				<li className='flex justify-around mt-20'>
 					<MainBtn onClick={navigateToCartHandler}>View Cart</MainBtn>
-					<MainBtn>CheckOut</MainBtn>
+					<MainBtn onClick={navigateToCheckoutHandler}>CheckOut</MainBtn>
 				</li>
 			</ul>
 		</Fragment>

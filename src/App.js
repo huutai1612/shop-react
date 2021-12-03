@@ -9,6 +9,9 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
+import CheckOutPage from './pages/CheckoutPage';
+import LoginPage from './pages/LoginPage';
+import NotFountPage from './pages/NotFoundPage';
 
 function App() {
 	return (
@@ -21,6 +24,9 @@ function App() {
 				<Route path='/contact' element={<ContactPage />} />
 				<Route path='/product/:id' element={<ProductPage />} />
 				<Route path='/cart' element={<CartPage />} />
+				<Route path='/checkout' element={<CheckOutPage />} />
+				<Route path='/login' element={<LoginPage />} />
+				<Route path='*' element={<NotFountPage />} />
 			</Routes>
 			<Footer />
 		</Fragment>
