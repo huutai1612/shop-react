@@ -29,7 +29,8 @@ const ItemInShop = (props) => {
 					})}
 				</p>
 			</div>
-			<div className={`${styles.btn} flex justify-end items-center mr-2`}>
+			<div
+				className={`flex mt-3 justify-around items-center rounded-md shadow-lg py-4 bg-main ${styles.btn}`}>
 				<MainBtn onClick={detailClickHandler}>Detail</MainBtn>
 				<BsCartPlusFill className='text-2xl text-red-400 hover:text-red-500 ml-5' />
 			</div>

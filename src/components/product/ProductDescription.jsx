@@ -24,14 +24,14 @@ const ProductDescription = (props) => {
 			<div className='my-2'>
 				<p className='text-lg'>{props.description}</p>
 			</div>
-			<div className='my-2 flex justify-end mr-11'>
+			<div className='my-2 flex justify-end mr-16'>
 				<InputItem />
 			</div>
-			<div className='flex justify-end my-2'>
-				<ShopBtn className='py-2 px-6 rounded-md text-xl mr-4'>
+			<div className='flex justify-around my-8'>
+				<ShopBtn className='py-2 px-6 rounded-md text-xl mr-14'>
 					Continue to Shopping
 				</ShopBtn>
-				<MainBtn>Add to Cart</MainBtn>
+				<MainBtn className='ml-14'>Add to Cart</MainBtn>
 			</div>
 		</Fragment>
 	);

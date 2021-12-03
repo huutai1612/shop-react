@@ -1,0 +1,12 @@
+.card {
+	animation: slideFromBottom ease-in 0.3s;
+}
+
+@keyframes slideFromBottom {
+	from {
+		transform: translateY(10%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}

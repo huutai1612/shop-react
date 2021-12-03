@@ -2,9 +2,14 @@ import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import CartItem from './CartItem';
 import MainBtn from '../UI/MainBtn';
+import { useNavigate } from 'react-router';
 
 const CartList = (props) => {
 	const totalPrice = useSelector((state) => state.totalPrice);
+
+	const navigate = useNavigate();
+
+	const navigateToCartHandler = () => navigate('/cart');
 
 	return (
 		<Fragment>
@@ -18,7 +23,7 @@ const CartList = (props) => {
 					</p>
 				</li>
 				<li className='flex justify-around mt-20'>
-					<MainBtn>View Cart</MainBtn>
+					<MainBtn onClick={navigateToCartHandler}>View Cart</MainBtn>
 					<MainBtn>CheckOut</MainBtn>
 				</li>
 			</ul>

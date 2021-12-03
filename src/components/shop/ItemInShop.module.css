@@ -5,10 +5,11 @@
 
 .btn {
 	position: absolute;
-	right: 0;
-	bottom: 12px;
+	width: 100%;
+	bottom: 0;
+	right: 1.4px;
 	opacity: 0;
-	transform: translateX(10%);
+	transform: translateY(10%);
 	transition: all ease-in-out 0.3s;
 }
 
