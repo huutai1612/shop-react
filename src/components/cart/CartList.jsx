@@ -5,7 +5,6 @@ import MainBtn from '../UI/MainBtn';
 import { useNavigate } from 'react-router';
 
 const CartList = (props) => {
-	console.log(props);
 	const totalPrice = useSelector((state) => state.totalPrice);
 
 	const navigate = useNavigate();
@@ -26,11 +25,11 @@ const CartList = (props) => {
 					</p>
 				</li>
 				<li className='flex justify-around mt-20'>
-					{props.isCheckOut && (
-						<div>
-							<MainBtn onClick={navigateToCartHandler}>View Cart</MainBtn>
-							<MainBtn onClick={navigateToCheckoutHandler}>CheckOut</MainBtn>
-						</div>
+					{!props.isCheckout && (
+						<MainBtn onClick={navigateToCartHandler}>View Cart</MainBtn>
+					)}
+					{!props.isCheckout && (
+						<MainBtn onClick={navigateToCheckoutHandler}>CheckOut</MainBtn>
 					)}
 				</li>
 			</ul>

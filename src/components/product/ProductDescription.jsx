@@ -14,6 +14,7 @@ const ProductDescription = (props) => {
 				<AiTwotoneStar className='text-yellow-400' />
 				<AiTwotoneStar className='text-yellow-400' />
 				<AiTwotoneStar />
+				<span>&nbsp; (156 reviews)</span>
 			</div>
 			<div className='bg-main my-2 py-2 flex justify-around items-center'>
 				<p className='text-2xl'>Price :</p>

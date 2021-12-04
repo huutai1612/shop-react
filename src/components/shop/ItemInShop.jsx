@@ -13,7 +13,7 @@ const ItemInShop = (props) => {
 
 	return (
 		<Card className={`flex flex-col relative ${styles.item}`}>
-			<div className='mx-auto border-b-2'>
+			<div className='mx-auto'>
 				<img
 					className={`object-contain w-48 h-52 pb-6 ${styles.image}`}
 					src={props.image}
@@ -21,8 +21,10 @@ const ItemInShop = (props) => {
 				/>
 			</div>
 			<div className='ml-4 mt-2'>
-				<h2 className='text-red-400 text-lg'>{props.title}</h2>
-				<p>
+				<h2 className='text-red-400 text-2xl text-center border-b-2 mb-4'>
+					{props.title}
+				</h2>
+				<p className='text-lg'>
 					${' '}
 					{props.price.toLocaleString(undefined, {
 						minimumFractionDigits: 2,

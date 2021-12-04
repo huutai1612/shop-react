@@ -245,6 +245,7 @@ const FormCheckout = (props) => {
 				</label>
 				<textarea
 					className='w-full mt-2 border-2 rounded-md focus:ring-2 ring-red-400 focus:outline-none focus:border-red-400 pl-2'
+					placeholder='Writes your note here....'
 					name='note'
 					id='note'
 					cols='30'
