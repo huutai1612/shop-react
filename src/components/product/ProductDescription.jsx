@@ -5,6 +5,7 @@ import MainBtn from '../UI/MainBtn';
 import ShopBtn from '../UI/ShopBtn';
 
 const ProductDescription = (props) => {
+	console.log(props);
 	return (
 		<Fragment>
 			<div className='flex my-2 ml-2 items-center'>
