@@ -3,12 +3,26 @@ import { useNavigate } from 'react-router-dom';
 import Card from '../UI/Card';
 import styles from './ItemInShop.module.css';
 import MainBtn from '../UI/MainBtn';
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../../store/cartSlice';
 
 const ItemInShop = (props) => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const detailClickHandler = () => {
 		navigate(`/product/${props.id}`);
+	};
+
+	const addItemToCartHandler = () => {
+		const itemToAdd = {
+			id: props.id,
+			title: props.title,
+			price: props.price,
+			image: props.image,
+			amount: 1,
+		};
+		dispatch(addItemToCart(itemToAdd));
 	};
 
 	return (
@@ -34,7 +48,10 @@ const ItemInShop = (props) => {
 			<div
 				className={`flex mt-3 justify-around items-center rounded-md shadow-lg py-4 bg-main ${styles.btn}`}>
 				<MainBtn onClick={detailClickHandler}>Detail</MainBtn>
-				<BsCartPlusFill className='text-2xl text-red-400 hover:text-red-500 ml-5' />
+				<BsCartPlusFill
+					onClick={addItemToCartHandler}
+					className='text-2xl text-red-400 hover:text-red-500 ml-5'
+				/>
 			</div>
 		</Card>
 	);

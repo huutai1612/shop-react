@@ -45,6 +45,7 @@ const ProductPage = (props) => {
 				<div className='col-span-2 p-2'>
 					<ProductDescription
 						id={idProduct}
+						image={productDetail.image}
 						title={productDetail.title}
 						price={productDetail.price}
 						description={productDetail.description}

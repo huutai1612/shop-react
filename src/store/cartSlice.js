@@ -1,33 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const DUMMY_ITEM = [
-	{
-		id: 'i1',
-		title: 'I1',
-		price: 200,
-		img: 'https://technext.github.io/shopmax/images/model_7.png',
-		amount: 1,
-	},
-	{
-		id: 'i2',
-		title: 'I2',
-		price: 200,
-		img: 'https://technext.github.io/shopmax/images/model_5.png',
-		amount: 1,
-	},
-];
-
 const initialState = {
-	cartItem: DUMMY_ITEM,
-	totalPrice: 400,
+	cartItem: [],
+	totalPrice: 0,
 };
 
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addItemToCart(state, payload) {},
-		removeItemFromCart(state, payload) {},
+		addItemToCart(state, action) {
+			state.totalPrice += action.payload.price * action.payload.amount;
+
+			const foundedItem = state.cartItem.find(
+				(product) => product.id === action.payload.id,
+			);
+
+			if (foundedItem) {
+				foundedItem.amount += action.payload.amount;
+			} else {
+				state.cartItem.push(action.payload);
+			}
+		},
+		removeItemFromCart(state, action) {
+			state.totalPrice -= action.payload.price;
+			const foundedItem = state.cartItem.find(
+				(product) => product.id === action.payload.id,
+			);
+			if (foundedItem.amount <= 1) {
+				state.cartItem = state.cartItem.filter(
+					(product) => product.id !== action.payload.id,
+				);
+			} else {
+				foundedItem.amount--;
+			}
+		},
 		resetCart(state) {
 			state.cartItem = [];
 			state.totalPrice = 0;

@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
 import InputItem from '../UI/InputItem';
 
 const ItemTable = (props) => {
@@ -14,13 +15,15 @@ const ItemTable = (props) => {
 				/>
 			</td>
 			<td className='py-4'>
-				<h2 className='font-semibold text-xl'>{props.title}</h2>
+				<NavLink to={`/product/${props.id}`} className='font-semibold text-xl'>
+					{props.title}
+				</NavLink>
 			</td>
 			<td className='py-4'>
 				<p>$ {props.price.toFixed(2).toLocaleString()}</p>
 			</td>
 			<td className='py-4'>
-				<InputItem value={props.amount} />
+				<InputItem price={props.price} id={props.id} value={props.amount} />
 			</td>
 			<td className='py-4'>
 				<p>$ {total.toFixed(2).toLocaleString()}</p>

@@ -7,7 +7,8 @@ const CartTable = (props) => {
 		return (
 			<tr key={product.id} className='border-b-2'>
 				<ItemTable
-					image={product.img}
+					id={product.id}
+					image={product.image}
 					title={product.title}
 					amount={product.amount}
 					price={product.price}
