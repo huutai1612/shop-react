@@ -69,7 +69,7 @@ const Header = (props) => {
 					{ReactDOM.createPortal(
 						<OffCanvas
 							title={cartTitle}
-							className='mt-5'
+							className='mt-5 overflow-auto'
 							show={isShowCart}
 							close={closeCartHandler}>
 							<CartList />

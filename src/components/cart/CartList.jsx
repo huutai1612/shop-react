@@ -24,15 +24,15 @@ const CartList = (props) => {
 						$ {totalPrice.toFixed(2).toLocaleString()}
 					</p>
 				</li>
-				<li className='flex justify-around mt-20'>
-					{!props.isCheckout && (
-						<MainBtn onClick={navigateToCartHandler}>View Cart</MainBtn>
-					)}
-					{!props.isCheckout && (
-						<MainBtn onClick={navigateToCheckoutHandler}>CheckOut</MainBtn>
-					)}
-				</li>
 			</ul>
+			<div className='flex justify-around mt-20'>
+				{!props.isCheckout && (
+					<MainBtn onClick={navigateToCartHandler}>View Cart</MainBtn>
+				)}
+				{!props.isCheckout && (
+					<MainBtn onClick={navigateToCheckoutHandler}>CheckOut</MainBtn>
+				)}
+			</div>
 		</Fragment>
 	);
 };

@@ -7,7 +7,7 @@ const CartItem = (props) => {
 		return (
 			<li
 				key={itemInCart.id}
-				className='flex justify-between mt-5 overflow-auto border-b-2 pb-2 border-gray-200'>
+				className='flex justify-between mt-5 border-b-2 pb-2 border-gray-200 '>
 				<div className='ml-2'>
 					<img
 						className='object-contain w-28 h-28'

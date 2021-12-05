@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import useInput from '../../hooks/use-input';
 import MainBtn from '../UI/MainBtn';
 
@@ -76,6 +78,10 @@ const FormCheckout = (props) => {
 		enteredValue: enteredPhone,
 	} = useInput(isNotEmpty);
 
+	const noteRef = useRef();
+
+	const order = useSelector((state) => state.cartItem);
+
 	const firstNameClassName = `w-full border-2 h-10 rounded-md mt-2 pl-2 
 		focus:ring-2 ring-red-400 focus:outline-none focus:border-red-400 
 		${isFirstNameError && 'bg-red-500 text-white'}`;
@@ -125,11 +131,23 @@ const FormCheckout = (props) => {
 	const submitHandler = (event) => {
 		event.preventDefault();
 		if (!isValid) return;
-		console.log(123);
+		const dataToSend = {
+			firstName: enteredFirstName,
+			lastName: enteredLastName,
+			address: enteredAddress,
+			state: enteredState,
+			country: enteredCountry,
+			email: enteredEmail,
+			phone: enteredPhone,
+			note: noteRef.current.value,
+			order,
+		};
+
+		console.log(dataToSend);
 	};
 
 	return (
-		<form onSubmit={submitHandler} className='border-2 sm:p-4 lg:p-12'>
+		<form className='border-2 sm:p-4 lg:p-12'>
 			<div className='grid grid-cols-2 gap-4'>
 				<div>
 					<label className='text-gray-900' htmlFor='firstName'>
@@ -247,12 +265,15 @@ const FormCheckout = (props) => {
 					className='w-full mt-2 border-2 rounded-md focus:ring-2 ring-red-400 focus:outline-none focus:border-red-400 pl-2'
 					placeholder='Writes your note here....'
 					name='note'
+					ref={noteRef}
 					id='note'
 					cols='30'
 					rows='5'></textarea>
 			</div>
 			<div className='mt-4'>
-				<MainBtn className='w-full'>Place Order</MainBtn>
+				<MainBtn onClick={submitHandler} className='w-full'>
+					Place Order
+				</MainBtn>
 			</div>
 		</form>
 	);

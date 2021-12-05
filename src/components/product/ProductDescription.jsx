@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import { Fragment, useState } from 'react';
 import { AiTwotoneStar } from 'react-icons/all';
 import { useDispatch } from 'react-redux';
@@ -5,6 +6,8 @@ import { addItemToCart } from '../../store/cartSlice';
 import InputItem from '../UI/InputItem';
 import MainBtn from '../UI/MainBtn';
 import ShopBtn from '../UI/ShopBtn';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDescription = (props) => {
 	const [enteredAmount, setEnteredAmount] = useState(0);
@@ -22,10 +25,23 @@ const ProductDescription = (props) => {
 			amount: enteredAmount,
 		};
 		dispatch(addItemToCart(itemToAdd));
+		toast.success('Thank You for adding Product To Cart');
 	};
 
 	return (
 		<Fragment>
+			{ReactDOM.createPortal(
+				<ToastContainer
+					position='top-right'
+					autoClose={1500}
+					hideProgressBar={true}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					limit={2}
+				/>,
+				document.getElementById('toast'),
+			)}
 			<div className='flex my-2 ml-2 items-center'>
 				<h1 className='text-red-400 text-4xl ml-2 mr-10'>{props.title}</h1>
 				<AiTwotoneStar className='text-yellow-400' />
