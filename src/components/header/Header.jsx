@@ -1,12 +1,20 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { BiSearchAlt, IoCartOutline, GiHamburgerMenu } from 'react-icons/all';
+import { NavLink, useNavigate } from 'react-router-dom';
+import {
+	BiSearchAlt,
+	IoCartOutline,
+	GiHamburgerMenu,
+	AiOutlineUser,
+} from 'react-icons/all';
 import Navigation from './Navigation';
 import { useState } from 'react';
 import OffCanvas from '../UI/OffCanvas';
 import CartList from '../cart/CartList';
 import { useSelector } from 'react-redux';
+import MainBtn from '../UI/MainBtn';
+import { useDispatch } from 'react-redux';
+import { removeToken } from '../../store/tokenSlice';
 
 export const menuTitle = `Menu`;
 export const cartTitle = `Your Cart`;
@@ -20,10 +28,26 @@ const Header = (props) => {
 		}, 0),
 	);
 
+	const dispatch = useDispatch();
 	const showNavigationHandler = () => setIsShowNavigation(true);
 	const closeNavigationHandler = () => setIsShowNavigation(false);
 	const showCartHandler = () => setIsShowCart(true);
 	const closeCartHandler = () => setIsShowCart(false);
+	const token = useSelector((state) => state.token.token);
+	const navigate = useNavigate();
+
+	const loginHandler = () => {
+		if (!token) {
+			navigate('/login');
+		} else {
+			navigate('/profile');
+		}
+	};
+
+	const signOutHandler = () => {
+		dispatch(removeToken());
+		navigate('/');
+	};
 
 	return (
 		<header className='container mx-auto'>
@@ -38,7 +62,7 @@ const Header = (props) => {
 				<div className='justify-around sm:hidden lg:flex'>
 					<Navigation />
 				</div>
-				<div className='flex justify-end'>
+				<div className='flex justify-end items-center'>
 					<BiSearchAlt className='text-xl cursor-pointer mr-4' />
 					<div className='relative'>
 						<IoCartOutline
@@ -49,6 +73,13 @@ const Header = (props) => {
 							className={`absolute -top-2 right-2 bg-red-400 px-1.5 text-xs text-white rounded-full`}>
 							{totalAmountInCart}
 						</span>
+					</div>
+					<div className='flex items-center'>
+						<AiOutlineUser
+							onClick={loginHandler}
+							className='text-xl cursor-pointer mr-4'
+						/>
+						{token && <MainBtn onClick={signOutHandler}>Sign out</MainBtn>}
 					</div>
 					<GiHamburgerMenu
 						onClick={showNavigationHandler}

@@ -40,6 +40,7 @@ const LoginPage = (props) => {
 		isError: isPasswordError,
 		enteredValue: enteredPassword,
 	} = useInput(isGreater6);
+
 	const dispatch = useDispatch();
 
 	const emailClassName = `w-full border-2 h-12 rounded-md mt-2 pl-2 

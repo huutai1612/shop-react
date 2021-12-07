@@ -12,6 +12,7 @@ import CartPage from './pages/CartPage';
 import CheckOutPage from './pages/CheckoutPage';
 import LoginPage from './pages/LoginPage';
 import NotFountPage from './pages/NotFoundPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
 	return (
@@ -26,6 +27,7 @@ function App() {
 				<Route path='/cart' element={<CartPage />} />
 				<Route path='/checkout' element={<CheckOutPage />} />
 				<Route path='/login' element={<LoginPage />} />
+				<Route path='/profile' element={<ProfilePage />} />
 				<Route path='*' element={<NotFountPage />} />
 			</Routes>
 			<Footer />
