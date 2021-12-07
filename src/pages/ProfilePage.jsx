@@ -57,6 +57,7 @@ const ProfilePage = (props) => {
 					}
 					toast.success('Successfully Changed Password Please Login again');
 					dispatch(removeToken());
+					resetPassword();
 					setTimeout(() => {
 						navigate('/login');
 					}, 2000);

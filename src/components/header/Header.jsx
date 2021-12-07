@@ -7,8 +7,13 @@ import {
 	GiHamburgerMenu,
 	AiOutlineUser,
 } from 'react-icons/all';
+import {
+	openCart,
+	closeCart,
+	openNavigation,
+	closeNavigation,
+} from '../../store/offCanvasSlice';
 import Navigation from './Navigation';
-import { useState } from 'react';
 import OffCanvas from '../UI/OffCanvas';
 import CartList from '../cart/CartList';
 import { useSelector } from 'react-redux';
@@ -20,8 +25,12 @@ export const menuTitle = `Menu`;
 export const cartTitle = `Your Cart`;
 
 const Header = (props) => {
-	const [isShowNavigation, setIsShowNavigation] = useState(false);
-	const [isShowCart, setIsShowCart] = useState(false);
+	// const [isShowNavigation, setIsShowNavigation] = useState(false);
+	// const [isShowCart, setIsShowCart] = useState(false);
+	const isShowCart = useSelector((state) => state.offCanvas.isShowCart);
+	const isShowNavigation = useSelector(
+		(state) => state.offCanvas.isShowNavigation,
+	);
 	const totalAmountInCart = useSelector((state) =>
 		state.cart.cartItem.reduce((total, item) => {
 			return (total += item.amount);
@@ -29,10 +38,10 @@ const Header = (props) => {
 	);
 
 	const dispatch = useDispatch();
-	const showNavigationHandler = () => setIsShowNavigation(true);
-	const closeNavigationHandler = () => setIsShowNavigation(false);
-	const showCartHandler = () => setIsShowCart(true);
-	const closeCartHandler = () => setIsShowCart(false);
+	const showNavigationHandler = () => dispatch(openNavigation());
+	const closeNavigationHandler = () => dispatch(closeNavigation());
+	const showCartHandler = () => dispatch(openCart());
+	const closeCartHandler = () => dispatch(closeCart());
 	const token = useSelector((state) => state.token.token);
 	const navigate = useNavigate();
 

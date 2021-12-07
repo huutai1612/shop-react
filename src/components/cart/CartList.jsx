@@ -3,15 +3,25 @@ import { useSelector } from 'react-redux';
 import CartItem from './CartItem';
 import MainBtn from '../UI/MainBtn';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { closeCart } from '../../store/offCanvasSlice';
 
 const CartList = (props) => {
 	const totalPrice = useSelector((state) => state.cart.totalPrice);
 
+	const dispatch = useDispatch();
+
 	const navigate = useNavigate();
 
-	const navigateToCartHandler = () => navigate('/cart');
+	const navigateToCartHandler = () => {
+		navigate('/cart');
+		dispatch(closeCart());
+	};
 
-	const navigateToCheckoutHandler = () => navigate('/checkout');
+	const navigateToCheckoutHandler = () => {
+		navigate('/checkout');
+		dispatch(closeCart());
+	};
 
 	return (
 		<Fragment>
