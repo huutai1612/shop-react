@@ -6,7 +6,7 @@ import BreadCrumb from '../components/UI/BreadCrumb';
 import MainBtn from '../components/UI/MainBtn';
 
 const CartPage = (props) => {
-	const totalAmount = useSelector((state) => state.totalPrice);
+	const totalAmount = useSelector((state) => state.cart.totalPrice);
 	const navigate = useNavigate();
 
 	const navigateToCheckoutHandler = () => navigate('/checkout');

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import ItemTable from './ItemTable';
 
 const CartTable = (props) => {
-	const itemsInCart = useSelector((state) => state.cartItem);
+	const itemsInCart = useSelector((state) => state.cart.cartItem);
 	const itemInTable = itemsInCart.map((product) => {
 		return (
 			<tr key={product.id} className='border-b-2'>

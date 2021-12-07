@@ -5,7 +5,7 @@ import MainBtn from '../UI/MainBtn';
 import { useNavigate } from 'react-router';
 
 const CartList = (props) => {
-	const totalPrice = useSelector((state) => state.totalPrice);
+	const totalPrice = useSelector((state) => state.cart.totalPrice);
 
 	const navigate = useNavigate();
 

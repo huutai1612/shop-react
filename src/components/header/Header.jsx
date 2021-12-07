@@ -15,7 +15,7 @@ const Header = (props) => {
 	const [isShowNavigation, setIsShowNavigation] = useState(false);
 	const [isShowCart, setIsShowCart] = useState(false);
 	const totalAmountInCart = useSelector((state) =>
-		state.cartItem.reduce((total, item) => {
+		state.cart.cartItem.reduce((total, item) => {
 			return (total += item.amount);
 		}, 0),
 	);

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const CartItem = (props) => {
-	const cartItem = useSelector((state) => state.cartItem);
+	const cartItem = useSelector((state) => state.cart.cartItem);
 	return cartItem.map((itemInCart) => {
 		return (
 			<li

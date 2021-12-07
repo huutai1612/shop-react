@@ -1,5 +1,5 @@
 import React from 'react';
-import FooterContent from './FooterContent';
+import ContactContent from './ContactContent';
 import FooterMap from './FooterMap';
 
 const Footer = (props) => {
@@ -7,7 +7,7 @@ const Footer = (props) => {
 		<footer className='bg-main mt-16 py-16'>
 			<div className='container mx-auto grid grid-cols-12 gap-10 text-red-400'>
 				<FooterMap />
-				<FooterContent />
+				<ContactContent />
 			</div>
 		</footer>
 	);

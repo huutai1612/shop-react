@@ -277,7 +277,7 @@ const FormCheckout = (props) => {
 							Email
 						</label>
 						<input
-							type='text'
+							type='email'
 							value={enteredEmail}
 							onChange={emailChangeHandler}
 							onBlur={emailBlurHandler}

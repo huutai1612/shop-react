@@ -1,0 +1,11 @@
+.landing {
+	background: url(https://demo.themefisher.com/adrian/images/backgrounds/header-bg.jpg);
+	width: 100%;
+	height: 340px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}

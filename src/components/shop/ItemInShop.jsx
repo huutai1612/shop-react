@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { BsCartPlusFill } from 'react-icons/all';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +9,6 @@ import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../store/cartSlice';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Fragment } from 'react';
 
 const ItemInShop = (props) => {
 	const navigate = useNavigate();
