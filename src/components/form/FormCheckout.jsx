@@ -8,6 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { resetCart } from '../../store/cartSlice';
+import { useNavigate } from 'react-router';
 
 const validateEmail = (email) => {
 	return String(email)
@@ -104,6 +105,8 @@ const FormCheckout = (props) => {
 
 	const order = useSelector((state) => state.cartItem);
 
+	const navigate = useNavigate();
+
 	const firstNameClassName = `w-full border-2 h-10 rounded-md mt-2 pl-2 
 		focus:ring-2 ring-red-400 focus:outline-none focus:border-red-400 
 		${isFirstNameError && 'bg-red-500 text-white'}`;
@@ -168,6 +171,7 @@ const FormCheckout = (props) => {
 			.then((data) => toast.success('Thank you for your ordering'))
 			.then(resetInput)
 			.then(dispatch(resetCart()))
+			.then(() => setTimeout(() => navigate('/'), 2000))
 			.catch((error) =>
 				toast.error(
 					'Something Error When Ordering Data Please Contact with us',
