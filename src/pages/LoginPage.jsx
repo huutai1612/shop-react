@@ -5,8 +5,12 @@ import MainBtn from '../components/UI/MainBtn';
 import useInput from '../hooks/use-input';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
+import { setToken } from '../store/tokenSlice';
+import { useNavigate } from 'react-router';
 
 const SIGN_UP_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBc5VF87x1-LlW-8eUc7mumG29o9rbx1rA`;
+const SIGN_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBc5VF87x1-LlW-8eUc7mumG29o9rbx1rA`;
 
 const validateEmail = (email) => {
 	return String(email)
@@ -36,6 +40,7 @@ const LoginPage = (props) => {
 		isError: isPasswordError,
 		enteredValue: enteredPassword,
 	} = useInput(isGreater6);
+	const dispatch = useDispatch();
 
 	const emailClassName = `w-full border-2 h-12 rounded-md mt-2 pl-2 
 		focus:ring-2 ring-red-400 focus:outline-none focus:border-red-400 
@@ -51,6 +56,20 @@ const LoginPage = (props) => {
 	};
 
 	const isValid = isEmailValid && isPasswordValid;
+	const navigate = useNavigate();
+
+	const data = {
+		email: enteredEmail,
+		password: enteredPassword,
+		returnSecureToken: false,
+	};
+	const option = {
+		method: 'POST',
+		body: JSON.stringify(data),
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	};
 
 	const submitHandler = (event) => {
 		event.preventDefault();
@@ -58,10 +77,35 @@ const LoginPage = (props) => {
 			if (!isValid) throw new Error('Please enter valid Email Or Password');
 
 			if (isLoggedIn) {
+				fetch(SIGN_IN_URL, option)
+					.then((response) => response.json())
+					.then((data) => {
+						if (data.error) {
+							toast.error(data.error.message);
+							return;
+						} else {
+							toast.success('Successfully Login');
+							dispatch(setToken(data.idToken));
+							navigate('/');
+						}
+					})
+					.then(resetInput)
+					.catch((error) => toast.error(error));
 			} else {
+				fetch(SIGN_UP_URL, option)
+					.then((response) => response.json())
+					.then((data) => {
+						if (data.error) {
+							toast.error(data.error.message);
+							return;
+						} else {
+							toast.success('Success Sign up Account Please Login');
+							setIsLoggedIn(true);
+						}
+					})
+					.then(resetInput)
+					.catch((error) => toast.error(error));
 			}
-
-			resetInput();
 		} catch (error) {
 			toast.error(error.message);
 		}
