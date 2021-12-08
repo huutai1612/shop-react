@@ -133,7 +133,7 @@ const LoginPage = (props) => {
 						{isLoggedIn ? 'Login To Your Account' : 'Sign Up Your Account'}
 					</h1>
 					<form onSubmit={submitHandler} className='mt-8 w-full px-6'>
-						<div className='flex justify-between items-center'>
+						<div className='flex justify-between items-center sm:flex-col md:flex-row'>
 							<label htmlFor='email' className='text-red-400'>
 								Email :
 							</label>
@@ -150,7 +150,7 @@ const LoginPage = (props) => {
 								)}
 							</div>
 						</div>
-						<div className='flex justify-between items-center mt-4'>
+						<div className='flex justify-between items-center mt-4 sm:flex-col md:flex-row'>
 							<label htmlFor='password' className='text-red-400'>
 								Password :
 							</label>
