@@ -60,7 +60,7 @@ const Header = (props) => {
 
 	return (
 		<header className='container mx-auto'>
-			<nav className='grid gap-4 lg:grid-cols-3 sm:grid-cols-2 h-20 items-center'>
+			<nav className='grid gap-4 md:grid-cols-3 sm:grid-cols-2 h-20 items-center'>
 				<div className='flex justify-start'>
 					<NavLink
 						className=' uppercase font-semibold border-2 px-4 py-1 text-xl text-gray-500 border-black'
@@ -68,7 +68,7 @@ const Header = (props) => {
 						ShopMax
 					</NavLink>
 				</div>
-				<div className='justify-around sm:hidden lg:flex'>
+				<div className='justify-around sm:hidden md:flex'>
 					<Navigation />
 				</div>
 				<div className='flex justify-end items-center'>
@@ -93,7 +93,7 @@ const Header = (props) => {
 					<GiHamburgerMenu
 						onClick={showNavigationHandler}
 						className={`text-xl cursor-pointer text-gray500 
-							sm:block lg:hidden hover:shadow-lg 
+							sm:block md:hidden hover:shadow-lg 
 						hover:text-red-400 transition ease-in-out duration-300`}
 					/>
 					{ReactDOM.createPortal(
