@@ -25,7 +25,7 @@ const RelatedCarousel = (props) => {
 					>
 						<div className='grid grid-cols-8'>
 							<img
-								className='object-contain w-full col-span-6'
+								className='object-contain w-4/6 mx-auto col-span-6'
 								src={item.image}
 								alt={item.title}
 							/>
