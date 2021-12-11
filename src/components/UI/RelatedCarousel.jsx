@@ -20,16 +20,16 @@ const RelatedCarousel = (props) => {
 				{slides.map((item, index) => (
 					<div
 						key={index}
-						className='flex justify-end items-end pb-8 relative'
+
 						// style={{background: `url('${item.image}') no-repeat left 10%`,	}}
 					>
-						<div>
+						<div className='grid grid-cols-8'>
 							<img
-								className='object-contain w-4/6'
+								className='object-contain w-full col-span-6'
 								src={item.image}
 								alt={item.title}
 							/>
-							<ShopBtn className='absolute top-1/2 right-4 mt-8 px-4 py-2 text-2xl'>
+							<ShopBtn className='col-span-2 20 h-10 leading-10 mt-32 text-center'>
 								{item.title}
 							</ShopBtn>
 						</div>
