@@ -155,7 +155,10 @@ const FormCheckout = (props) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		if (!isValid) return;
+		if (!isValid) {
+			toast.error('Please enter all valid information');
+			return;
+		}
 		const dataToSend = {
 			firstName: enteredFirstName,
 			lastName: enteredLastName,
