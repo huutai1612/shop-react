@@ -6,22 +6,30 @@ const Navigation = (props) => {
 	return (
 		<Fragment>
 			<NavLink
-				className={(isActive) => (isActive ? styles.active : styles.disabled)}
+				className={({ isActive }) =>
+					isActive ? styles.active : styles.disabled
+				}
 				to='/'>
 				Home
 			</NavLink>
 			<NavLink
-				className={(isActive) => (isActive ? styles.active : styles.disabled)}
+				className={({ isActive }) =>
+					isActive ? styles.active : styles.disabled
+				}
 				to='/shop'>
 				Shop
 			</NavLink>
 			<NavLink
-				className={(isActive) => (isActive ? styles.active : styles.disabled)}
+				className={({ isActive }) =>
+					isActive ? styles.active : styles.disabled
+				}
 				to='/about'>
 				About
 			</NavLink>
 			<NavLink
-				className={(isActive) => (isActive ? styles.active : styles.disabled)}
+				className={({ isActive }) =>
+					isActive ? styles.active : styles.disabled
+				}
 				to='/contact'>
 				Contact
 			</NavLink>
